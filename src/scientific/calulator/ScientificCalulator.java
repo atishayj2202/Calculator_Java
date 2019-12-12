@@ -1,19 +1,23 @@
+package scientific.calulator;
 import java.awt.*;
 import java.awt.event.*;
+import static java.lang.Math.cbrt;
+import static java.lang.Math.sqrt;
 import javax.swing.*;
 public class ScientificCalulator {
     static int num1 = 0;
     static int num2 = 0;
     static int symb = 0;
     static int chan = 0;
+    static int mem = 0;
     JFrame mainFrame;
     JLabel Wspace;
     Font f1;
     public ScientificCalulator(){
         mainFrame = new JFrame("Calculator");
         f1 = new Font(Font.SERIF, Font.BOLD, 30);
-        mainFrame.setSize(350,400);
-        mainFrame.setLayout(new GridLayout(6,1));
+        mainFrame.setSize(500,500);
+        mainFrame.setLayout(new GridLayout(9,1));
         mainFrame.getContentPane().setBackground(Color.black);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -30,6 +34,115 @@ public class ScientificCalulator {
          String command = e.getActionCommand();  
          
           switch (command) {
+              case "C":
+                  mem = 0;
+                  Wspace.setText("Cleared");
+                  break;
+                  
+              case "S":
+                  if(chan == 0){
+                      mem = num1;
+                      symb = 3;
+                        chan = 1;
+                      Wspace.setText("Stored: " + Integer.toString(num1));
+                  }
+                  else {
+                      if(num2 == 0){
+                          mem = num1;
+                          Wspace.setText("Stored: " + Integer.toString(num1));
+                      }
+                      else{
+                          if(symb == 1){
+                                num1 = num1 / num2;
+                            }
+                            else if(2 == symb){
+                                num1 = num1 * num2;
+                            }
+                            else if(3 == symb){
+                                num1 = num1 + num2;
+                            }
+                            else if(4 == symb){
+                                num1 = num1 - num2;
+                            }
+                      num2 = 0;
+                      mem = num1;
+                      symb = 3;
+                      Wspace.setText("Stored: " + Integer.toString(num1));
+                      }
+                  }
+                  break;
+              case "R":
+                  if(chan == 0){
+                      if (num1 == 0){
+                        num1 = mem;
+                        symb = 3;
+                        chan = 1;
+                          Wspace.setText("Memory" + Integer.toString(num1));
+                      }
+                      else{
+                          symb = 3;
+                          num2 = mem;
+                          Wspace.setText("Memory" + Integer.toString(num2));
+                      }
+                  }
+                  else {
+                      if(num2 == 0){
+                          num2 = mem;
+                          Wspace.setText("Memory" + Integer.toString(num1));
+                      }
+                      else{
+                          if(symb == 1){
+                            num1 = num1 / num2;
+                          }
+                          else if(2 == symb){
+                            num1 = num1 * num2;
+                          }
+                          else if(3 == symb){
+                            num1 = num1 + num2;
+                          }
+                          else if(4 == symb){
+                            num1 = num1 - num2;
+                          }
+                      }
+                      num2 = mem;
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText("Memory" + Integer.toString(num2));
+                  }
+                  break;
+              case "MP":
+                  if(chan == 0){
+                      mem = mem + num1;
+                      symb = 3;
+                        chan = 1;
+                      Wspace.setText("After Adding: " + Integer.toString(mem));
+                  }
+                  else {
+                      if(num2 == 0){
+                          mem = mem + num1;
+                          Wspace.setText("After Adding: " + Integer.toString(mem));
+                      }
+                      else{
+                          if(symb == 1){
+                                num1 = num1 / num2;
+                            }
+                            else if(2 == symb){
+                                num1 = num1 * num2;
+                            }
+                            else if(3 == symb){
+                                num1 = num1 + num2;
+                            }
+                            else if(4 == symb){
+                                num1 = num1 - num2;
+                            }
+                      num2 = 0;
+                      mem = mem + num1;
+                      symb = 3;
+                        chan = 1;
+                      Wspace.setText("After Adding: " + Integer.toString(mem));
+                      }
+                  }
+                  break;
               case "AC":
                   Wspace.setText("00");
                   num1 = 0;
@@ -256,7 +369,7 @@ public class ScientificCalulator {
                       Wspace.setText(Integer.toString(num1));
                   }
                   break;  
-              default:
+              case "0":
                   if (chan == 0){
                       num1 = (num1 *10) + 0;
                       Wspace.setText(Integer.toString(num1));
@@ -266,8 +379,185 @@ public class ScientificCalulator {
                       Wspace.setText(Integer.toString(num2));
                   }
                   break;
+              case "^2":
+                  if (chan == 0){
+                      num1 = num1 * num1;
+                      Wspace.setText(Integer.toString(num1));
+                  }
+                  else{
+                      if (num2 == 0){
+                        num1 = num1 * num1;
+                        Wspace.setText(Integer.toString(num1));
+                      }
+                      else{
+                        num2 = num2 * num2;
+                        Wspace.setText(Integer.toString(num2));
+                        if(symb == 1){
+                            num1 = num1 / num2;
+                        }
+                        else if(2 == symb){
+                            num1 = num1 * num2;
+                        }
+                        else if(3 == symb){
+                            num1 = num1 + num2;
+                        }
+                        else if(4 == symb){
+                            num1 = num1 - num2;
+                        }
+                        num2 = 0;
+                        symb = 3;
+                        Wspace.setText(Integer.toString(num1));
+                      }
+                  }
+                  symb = 3;
+                  break;
+                  
+              case "^3":
+                  if (chan == 0){
+                      num1 = num1 * num1 * num1;
+                      Wspace.setText(Integer.toString(num1));
+                  }
+                  else{
+                      if (num2 == 0){
+                        num1 = num1 * num1 * num1;
+                        Wspace.setText(Integer.toString(num1));
+                      }
+                      else{
+                        num2 = num2 * num2 * num2;
+                        Wspace.setText(Integer.toString(num2));
+                        if(symb == 1){
+                            num1 = num1 / num2;
+                        }
+                        else if(2 == symb){
+                            num1 = num1 * num2;
+                        }
+                        else if(3 == symb){
+                            num1 = num1 + num2;
+                        }
+                        else if(4 == symb){
+                            num1 = num1 - num2;
+                        }
+                        num2 = 0;
+                        symb = 3;
+                        Wspace.setText(Integer.toString(num1));
+                      }
+                  }
+                  symb = 3;
+                  break;  
+              case "^.5":
+                  if (chan == 0){
+                      num1 = (int) sqrt(num1);
+                      Wspace.setText(Integer.toString(num1));
+                  }
+                  else{
+                      if(num2 == 0){
+                          num1 = (int) sqrt(num1);
+                          Wspace.setText(Integer.toString(num1));
+                      }
+                      else{
+                      num2 = (int) sqrt(num2);
+                      Wspace.setText(Integer.toString(num2));
+                      if(symb == 1){
+                          num1 = num1 / num2;
+                      }
+                      else if(2 == symb){
+                          num1 = num1 * num2;
+                      }
+                      else if(3 == symb){
+                          num1 = num1 + num2;
+                      }
+                      else if(4 == symb){
+                          num1 = num1 - num2;
+                      }
+                      num2 = 0;
+                      symb = 3;
+                      Wspace.setText(Integer.toString(num1));
+                      }
+                  }
+                  symb = 3;
+                  break; 
+                  
+              case "^.3":
+                  if (chan == 0){
+                      num1 = (int) cbrt(num1);
+                      Wspace.setText(Integer.toString(num1));
+                  }
+                  else{
+                      if(num2 == 0){
+                          num1 = (int) cbrt(num1);
+                          Wspace.setText(Integer.toString(num1));
+                      }
+                      else{
+                      num2 = (int) cbrt(num2);
+                      Wspace.setText(Integer.toString(num2));
+                      if(symb == 1){
+                          num1 = num1 / num2;
+                      }
+                      else if(2 == symb){
+                          num1 = num1 * num2;
+                      }
+                      else if(3 == symb){
+                          num1 = num1 + num2;
+                      }
+                      else if(4 == symb){
+                          num1 = num1 - num2;
+                      }
+                      num2 = 0;
+                      symb = 3;
+                      Wspace.setText(Integer.toString(num1));
+                      }
+                  }
+                  symb = 3;
+                  break; 
+              case "-ve":
+                  if (chan == 0){
+                      num1 = num1 * (-1);
+                      Wspace.setText(Integer.toString(num1));
+                  }
+                  else{
+                      num2 = num2 * (-1);
+                      Wspace.setText(Integer.toString(num2));
+                  }
+                  break;  
+              case "x!":
+                  if (chan == 0){
+                      int x=1;
+                      while(num1>0){
+                          x = x * num1;
+                          num1--;
+                      }
+                      num1 = x;
+                      Wspace.setText(Integer.toString(num1));
+                  }
+                  else{
+                      if (num2 == 0){
+                        int x=1;
+                        while(num1>0){
+                            x = x * num1;
+                            num1--;
+                        }
+                        num1 = x;
+                        Wspace.setText(Integer.toString(num1));
+                      }
+                      else{
+                        int x = 1;
+                        while(num2 > 0){
+                            x = x* num2;
+                            num2--;
+                        }
+                        num2 = x;
+                        Wspace.setText(Integer.toString(num2));
+                      }
+                  }
+                  break;
+              default:
+                  Wspace.setText("Error");
           }
       }		
+
+        private int pow(int num11, double par) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
 
    }
     private void Create_r1(){
@@ -279,22 +569,22 @@ public class ScientificCalulator {
         JButton b3;
         b3 = new JButton("X");
         b3.setForeground(Color.white);
-        b3.setBackground(Color.DARK_GRAY.brighter());
+        b3.setBackground(Color.GREEN.darker());
         
         JButton b1;
         b1 = new JButton("AC");
         b1.setForeground(Color.white);
-        b1.setBackground(Color.DARK_GRAY.brighter());
+        b1.setBackground(Color.GREEN.darker());
         
         JButton b2;
         b2 = new JButton("/");
         b2.setForeground(Color.white);
-        b2.setBackground(Color.DARK_GRAY.brighter());
+        b2.setBackground(Color.GREEN.darker());
         
         JButton b4;
         b4 = new JButton("<=");
         b4.setForeground(Color.white);
-        b4.setBackground(Color.DARK_GRAY.brighter());
+        b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
         b2.setFont(f1);
@@ -326,22 +616,22 @@ public class ScientificCalulator {
         JButton b3;
         b3 = new JButton("3");
         b3.setForeground(Color.white);
-        b3.setBackground(Color.BLUE);
+        b3.setBackground(Color.BLUE.darker());
         
         JButton b1;
         b1 = new JButton("1");
         b1.setForeground(Color.white);
-        b1.setBackground(Color.BLUE);
+        b1.setBackground(Color.BLUE.darker());
         
         JButton b2;
         b2 = new JButton("2");
         b2.setForeground(Color.white);
-        b2.setBackground(Color.BLUE);
+        b2.setBackground(Color.BLUE.darker());
         
         JButton b4;
         b4 = new JButton("+");
         b4.setForeground(Color.white);
-        b4.setBackground(Color.DARK_GRAY.brighter());
+        b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
         b2.setFont(f1);
@@ -373,22 +663,22 @@ public class ScientificCalulator {
         JButton b3;
         b3 = new JButton("6");
         b3.setForeground(Color.white);
-        b3.setBackground(Color.BLUE);
+        b3.setBackground(Color.BLUE.darker());
         
         JButton b1;
         b1 = new JButton("4");
         b1.setForeground(Color.white);
-        b1.setBackground(Color.BLUE);
+        b1.setBackground(Color.BLUE.darker());
         
         JButton b2;
         b2 = new JButton("5");
         b2.setForeground(Color.white);
-        b2.setBackground(Color.BLUE);
+        b2.setBackground(Color.BLUE.darker());
         
         JButton b4;
         b4 = new JButton("-");
         b4.setForeground(Color.white);
-        b4.setBackground(Color.DARK_GRAY.brighter());
+        b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
         b2.setFont(f1);
@@ -420,22 +710,22 @@ public class ScientificCalulator {
         JButton b3;
         b3 = new JButton("9");
         b3.setForeground(Color.white);
-        b3.setBackground(Color.BLUE);
+        b3.setBackground(Color.BLUE.darker());
         
         JButton b1;
         b1 = new JButton("7");
         b1.setForeground(Color.white);
-        b1.setBackground(Color.BLUE);
+        b1.setBackground(Color.BLUE.darker());
         
         JButton b2;
         b2 = new JButton("8");
         b2.setForeground(Color.white);
-        b2.setBackground(Color.BLUE);
+        b2.setBackground(Color.BLUE.darker());
         
         JButton b4;
         b4 = new JButton("=");
         b4.setForeground(Color.white);
-        b4.setBackground(Color.DARK_GRAY.brighter());
+        b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
         b2.setFont(f1);
@@ -467,17 +757,137 @@ public class ScientificCalulator {
         JButton b3;
         b3 = new JButton("0");
         b3.setForeground(Color.white);
-        b3.setBackground(Color.DARK_GRAY.brighter());
+        b3.setBackground(Color.BLUE.darker());
         b3.setFont(f1);
-        
         b3.setActionCommand("0");
-        
         b3.addActionListener(new ButtonClickListener());
         
         r1.add(b3);
         mainFrame.add(r1);
     }
-    
+    private void Create_r6(){
+        JPanel r1;
+        r1 = new JPanel();
+        r1.setLayout(new GridLayout());
+        r1.setBackground(Color.yellow);
+        
+        JButton b3;
+        b3 = new JButton("x!");
+        b3.setForeground(Color.white);
+        b3.setBackground(Color.GREEN.darker());
+        
+        JButton b1;
+        b1 = new JButton("+/-");
+        b1.setForeground(Color.white);
+        b1.setBackground(Color.GREEN.darker());
+        
+        b1.setFont(f1);
+        b3.setFont(f1);
+        
+        b1.setActionCommand("-ve");
+        b3.setActionCommand("x!");
+        
+        b1.addActionListener(new ButtonClickListener());
+        b3.addActionListener(new ButtonClickListener());
+        
+        r1.add(b1);
+        r1.add(b3);
+        mainFrame.add(r1);
+    }
+    private void Create_r7(){
+        JPanel r1;
+        r1 = new JPanel();
+        r1.setLayout(new GridLayout());
+        r1.setBackground(Color.yellow);
+        
+        JButton b3;
+        b3 = new JButton("x^3");
+        b3.setForeground(Color.white);
+        b3.setBackground(Color.GREEN.darker());
+        
+        JButton b1;
+        b1 = new JButton("x^2");
+        b1.setForeground(Color.white);
+        b1.setBackground(Color.GREEN.darker());
+        
+        JButton b2;
+        b2 = new JButton("x^1/2");
+        b2.setForeground(Color.white);
+        b2.setBackground(Color.GREEN.darker());
+        
+        JButton b4;
+        b4 = new JButton("x^1/3");
+        b4.setForeground(Color.white);
+        b4.setBackground(Color.GREEN.darker());
+        
+        b1.setFont(f1);
+        b2.setFont(f1);
+        b3.setFont(f1);
+        b4.setFont(f1);
+        
+        b1.setActionCommand("^2");
+        b2.setActionCommand("^.5");
+        b3.setActionCommand("^3");
+        b4.setActionCommand("^.3");
+        
+        b1.addActionListener(new ButtonClickListener());
+        b2.addActionListener(new ButtonClickListener());
+        b3.addActionListener(new ButtonClickListener());
+        b4.addActionListener(new ButtonClickListener());
+        
+        r1.add(b1);
+        r1.add(b2);
+        r1.add(b3);
+        r1.add(b4);
+        mainFrame.add(r1);
+    }
+    private void Create_r8(){
+        JPanel r1;
+        r1 = new JPanel();
+        r1.setLayout(new GridLayout());
+        r1.setBackground(Color.yellow);
+        
+        JButton b3;
+        b3 = new JButton("MC");
+        b3.setForeground(Color.white);
+        b3.setBackground(Color.RED.darker());
+        
+        JButton b1;
+        b1 = new JButton("MR");
+        b1.setForeground(Color.white);
+        b1.setBackground(Color.RED.darker());
+        
+        JButton b2;
+        b2 = new JButton("MS");
+        b2.setForeground(Color.white);
+        b2.setBackground(Color.RED.darker());
+        
+        JButton b4;
+        b4 = new JButton("M+");
+        b4.setForeground(Color.white);
+        b4.setBackground(Color.RED.darker());
+        
+        b1.setFont(f1);
+        b2.setFont(f1);
+        b3.setFont(f1);
+        b4.setFont(f1);
+        
+        b1.setActionCommand("R");
+        b2.setActionCommand("S");
+        b3.setActionCommand("C");
+        b4.setActionCommand("MP");
+        
+        b1.addActionListener(new ButtonClickListener());
+        b2.addActionListener(new ButtonClickListener());
+        b3.addActionListener(new ButtonClickListener());
+        b4.addActionListener(new ButtonClickListener());
+        
+        r1.add(b1);
+        r1.add(b2);
+        r1.add(b3);
+        r1.add(b4);
+        mainFrame.add(r1);
+    }
     void prepareGUI(){
         Create_Top();
         Create_r1();
@@ -485,6 +895,9 @@ public class ScientificCalulator {
         Create_r3();
         Create_r4();
         Create_r5();
+        Create_r6();
+        Create_r7();
+        Create_r8();
         mainFrame.setVisible(true);
     }
     
