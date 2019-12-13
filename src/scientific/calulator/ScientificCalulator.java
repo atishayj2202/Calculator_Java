@@ -5,19 +5,19 @@ import static java.lang.Math.cbrt;
 import static java.lang.Math.sqrt;
 import javax.swing.*;
 public class ScientificCalulator {
-    static int num1 = 0;
-    static int num2 = 0;
+    static double num1 = 0;
+    static double num2 = 0;
     static int symb = 0;
     static int chan = 0;
-    static int mem = 0;
+    static double mem = 0;
     JFrame mainFrame;
     JLabel Wspace;
     Font f1;
     public ScientificCalulator(){
         mainFrame = new JFrame("Calculator");
         f1 = new Font(Font.SERIF, Font.BOLD, 30);
-        mainFrame.setSize(500,500);
-        mainFrame.setLayout(new GridLayout(9,1));
+        mainFrame.setSize(500,550);
+        mainFrame.setLayout(new GridLayout(10,1));
         mainFrame.getContentPane().setBackground(Color.black);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -39,17 +39,18 @@ public class ScientificCalulator {
                   Wspace.setText("Cleared");
                   break;
                   
+                  
               case "S":
                   if(chan == 0){
                       mem = num1;
                       symb = 3;
                         chan = 1;
-                      Wspace.setText("Stored: " + Integer.toString(num1));
+                      Wspace.setText("Stored: " + Double.toString(num1));
                   }
                   else {
                       if(num2 == 0){
                           mem = num1;
-                          Wspace.setText("Stored: " + Integer.toString(num1));
+                          Wspace.setText("Stored: " + Double.toString(num1));
                       }
                       else{
                           if(symb == 1){
@@ -67,7 +68,7 @@ public class ScientificCalulator {
                       num2 = 0;
                       mem = num1;
                       symb = 3;
-                      Wspace.setText("Stored: " + Integer.toString(num1));
+                      Wspace.setText("Stored: " + Double.toString(num1));
                       }
                   }
                   break;
@@ -77,18 +78,18 @@ public class ScientificCalulator {
                         num1 = mem;
                         symb = 3;
                         chan = 1;
-                          Wspace.setText("Memory" + Integer.toString(num1));
+                          Wspace.setText("Memory" + Double.toString(num1));
                       }
                       else{
                           symb = 3;
                           num2 = mem;
-                          Wspace.setText("Memory" + Integer.toString(num2));
+                          Wspace.setText("Memory" + Double.toString(num2));
                       }
                   }
                   else {
                       if(num2 == 0){
                           num2 = mem;
-                          Wspace.setText("Memory" + Integer.toString(num1));
+                          Wspace.setText("Memory" + Double.toString(num1));
                       }
                       else{
                           if(symb == 1){
@@ -107,7 +108,205 @@ public class ScientificCalulator {
                       num2 = mem;
                       symb = 3;
                       chan = 1;
-                      Wspace.setText("Memory" + Integer.toString(num2));
+                      Wspace.setText("Memory" + Double.toString(num2));
+                  }
+                  break;
+              case "sin":
+                  if(chan == 0){
+                      num1 = Math.sin(Math.toRadians(num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                  }
+                  else {
+                      if(num2 == 0){
+                          num1 = Math.sin(Math.toRadians(num1));
+                          Wspace.setText(Double.toString(num1));
+                      }
+                      else{
+                          if(num2 == 0){
+                                num1 = Math.sin(Math.toRadians(num1));
+                                symb = 3;
+                                chan = 1;
+                                Wspace.setText(Double.toString(num1));
+                          }
+                          if(symb == 1){
+                                num1 = num1 / num2;
+                            }
+                            else if(2 == symb){
+                                num1 = num1 * num2;
+                            }
+                            else if(3 == symb){
+                                num1 = num1 + num2;
+                            }
+                            else if(4 == symb){
+                                num1 = num1 - num2;
+                            }
+                      num2 = 0;
+                      num1 = Math.sin(Math.toRadians(num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                      }
+                  }
+                  break;
+              case "cos":
+                  if(chan == 0){
+                      num1 = Math.cos(Math.toRadians(num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                  }
+                  else {
+                      if(num2 == 0){
+                          num1 = Math.cos(Math.toRadians(num1));
+                          Wspace.setText(Double.toString(num1));
+                      }
+                      else{
+                          if(num2 == 0){
+                                num1 = Math.cos(Math.toRadians(num1));
+                                symb = 3;
+                                chan = 1;
+                                Wspace.setText(Double.toString(num1));
+                          }
+                          else{
+                          if(symb == 1){
+                                num1 = num1 / num2;
+                            }
+                            else if(2 == symb){
+                                num1 = num1 * num2;
+                            }
+                            else if(3 == symb){
+                                num1 = num1 + num2;
+                            }
+                            else if(4 == symb){
+                                num1 = num1 - num2;
+                            }
+                      num2 = 0;
+                      num1 = Math.cos(Math.toRadians(num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                          }
+                      }
+                  }
+                  break;
+              case "tan":
+                  if(chan == 0){
+                      num1 = Math.tan(Math.toRadians(num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                  }
+                  else {
+                      if(num2 == 0){
+                          num1 = Math.tan(Math.toRadians(num1));
+                          Wspace.setText(Double.toString(num1));
+                      }
+                      else{
+                          if(num2 == 0){
+                                num1 = Math.tan(Math.toRadians(num1));
+                                symb = 3;
+                                chan = 1;
+                                Wspace.setText(Double.toString(num1));
+                          }
+                          if(symb == 1){
+                                num1 = num1 / num2;
+                            }
+                            else if(2 == symb){
+                                num1 = num1 * num2;
+                            }
+                            else if(3 == symb){
+                                num1 = num1 + num2;
+                            }
+                            else if(4 == symb){
+                                num1 = num1 - num2;
+                            }
+                      num2 = 0;
+                      num1 = Math.tan(Math.toRadians(num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                      }
+                  }
+                  break;
+                  case "ln":
+                  if(chan == 0){
+                      num1 = Math.log((num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                  }
+                  else {
+                      if(num2 == 0){
+                          num1 = Math.log((num1));
+                          Wspace.setText(Double.toString(num1));
+                      }
+                      else{
+                          if(num2 == 0){
+                                num1 = Math.log((num1));
+                                symb = 3;
+                                chan = 1;
+                                Wspace.setText(Double.toString(num1));
+                          }
+                          if(symb == 1){
+                                num1 = num1 / num2;
+                            }
+                            else if(2 == symb){
+                                num1 = num1 * num2;
+                            }
+                            else if(3 == symb){
+                                num1 = num1 + num2;
+                            }
+                            else if(4 == symb){
+                                num1 = num1 - num2;
+                            }
+                      num2 = 0;
+                      num1 = Math.log((num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                      }
+                  }
+                  break;
+                  
+                  case "log":
+                  if(chan == 0){
+                      num1 = Math.log10((num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                  }
+                  else {
+                      if(num2 == 0){
+                          num1 = Math.log10((num1));
+                          Wspace.setText(Double.toString(num1));
+                      }
+                      else{
+                          if(num2 == 0){
+                                num1 = Math.log10((num1));
+                                symb = 3;
+                                chan = 1;
+                                Wspace.setText(Double.toString(num1));
+                          }
+                          if(symb == 1){
+                                num1 = num1 / num2;
+                            }
+                            else if(2 == symb){
+                                num1 = num1 * num2;
+                            }
+                            else if(3 == symb){
+                                num1 = num1 + num2;
+                            }
+                            else if(4 == symb){
+                                num1 = num1 - num2;
+                            }
+                      num2 = 0;
+                      num1 = Math.log10((num1));
+                      symb = 3;
+                      chan = 1;
+                      Wspace.setText(Double.toString(num1));
+                      }
                   }
                   break;
               case "MP":
@@ -115,12 +314,12 @@ public class ScientificCalulator {
                       mem = mem + num1;
                       symb = 3;
                         chan = 1;
-                      Wspace.setText("After Adding: " + Integer.toString(mem));
+                      Wspace.setText("After Adding: " + Double.toString(mem));
                   }
                   else {
                       if(num2 == 0){
                           mem = mem + num1;
-                          Wspace.setText("After Adding: " + Integer.toString(mem));
+                          Wspace.setText("After Adding: " + Double.toString(mem));
                       }
                       else{
                           if(symb == 1){
@@ -139,7 +338,7 @@ public class ScientificCalulator {
                       mem = mem + num1;
                       symb = 3;
                         chan = 1;
-                      Wspace.setText("After Adding: " + Integer.toString(mem));
+                      Wspace.setText("After Adding: " + Double.toString(mem));
                       }
                   }
                   break;
@@ -171,7 +370,7 @@ public class ScientificCalulator {
                       }
                       num2 = 0;
                       symb = 1;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   break;  
                   //divide  = 1; multiply = 2; plus = 3; subtract = 4;
@@ -195,47 +394,49 @@ public class ScientificCalulator {
                       }
                       num2 = 0;
                       symb = 2;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   break;   
               case "Back":
                   if (chan == 0){
+                      num1 = num1 - (num1 % 10); 
                       num1 = (num1 / 10);
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
+                      num1 = num1 - (num1 % 10); 
                       num2 = (num2 / 10);
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
               case "1":
                   if (chan == 0){
                       num1 = (num1 *10) + 1;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 1;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
               case "2":
                   if (chan == 0){
                       num1 = (num1 *10) + 2;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 2;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
               case "3":
                   if (chan == 0){
                       num1 = (num1 *10) + 3;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 3;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
                   //divide  = 1; multiply = 2; plus = 3; subtract = 4;
@@ -259,37 +460,37 @@ public class ScientificCalulator {
                       }
                       num2 = 0;
                       symb = 3;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   break;  
               case "4":
                   if (chan == 0){
                       num1 = (num1 *10) + 4;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 4;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
               case "5":
                   if (chan == 0){
                       num1 = (num1 *10) + 5;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 5;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
               case "6":
                   if (chan == 0){
                       num1 = (num1 *10) + 6;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 6;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
               case "-":
@@ -312,38 +513,38 @@ public class ScientificCalulator {
                       }
                       num2 = 0;
                       symb = 4;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   break;  
                   //divide  = 1; multiply = 2; plus = 3; subtract = 4;
               case "7":
                   if (chan == 0){
                       num1 = (num1 *10) + 7;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 7;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
               case "8":
                   if (chan == 0){
                       num1 = (num1 *10) + 8;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 8;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  	
               case "9":
                   if (chan == 0){
                       num1 = (num1 *10) + 9;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 9;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
               case "=":
@@ -366,32 +567,32 @@ public class ScientificCalulator {
                       }
                       num2 = 0;
                       symb = 3;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   break;  
               case "0":
                   if (chan == 0){
                       num1 = (num1 *10) + 0;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = (num2 * 10) + 0;
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;
               case "^2":
                   if (chan == 0){
                       num1 = num1 * num1;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       if (num2 == 0){
                         num1 = num1 * num1;
-                        Wspace.setText(Integer.toString(num1));
+                        Wspace.setText(Double.toString(num1));
                       }
                       else{
                         num2 = num2 * num2;
-                        Wspace.setText(Integer.toString(num2));
+                        Wspace.setText(Double.toString(num2));
                         if(symb == 1){
                             num1 = num1 / num2;
                         }
@@ -406,7 +607,7 @@ public class ScientificCalulator {
                         }
                         num2 = 0;
                         symb = 3;
-                        Wspace.setText(Integer.toString(num1));
+                        Wspace.setText(Double.toString(num1));
                       }
                   }
                   symb = 3;
@@ -415,16 +616,16 @@ public class ScientificCalulator {
               case "^3":
                   if (chan == 0){
                       num1 = num1 * num1 * num1;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       if (num2 == 0){
                         num1 = num1 * num1 * num1;
-                        Wspace.setText(Integer.toString(num1));
+                        Wspace.setText(Double.toString(num1));
                       }
                       else{
                         num2 = num2 * num2 * num2;
-                        Wspace.setText(Integer.toString(num2));
+                        Wspace.setText(Double.toString(num2));
                         if(symb == 1){
                             num1 = num1 / num2;
                         }
@@ -439,7 +640,7 @@ public class ScientificCalulator {
                         }
                         num2 = 0;
                         symb = 3;
-                        Wspace.setText(Integer.toString(num1));
+                        Wspace.setText(Double.toString(num1));
                       }
                   }
                   symb = 3;
@@ -447,16 +648,16 @@ public class ScientificCalulator {
               case "^.5":
                   if (chan == 0){
                       num1 = (int) sqrt(num1);
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       if(num2 == 0){
                           num1 = (int) sqrt(num1);
-                          Wspace.setText(Integer.toString(num1));
+                          Wspace.setText(Double.toString(num1));
                       }
                       else{
                       num2 = (int) sqrt(num2);
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                       if(symb == 1){
                           num1 = num1 / num2;
                       }
@@ -471,7 +672,7 @@ public class ScientificCalulator {
                       }
                       num2 = 0;
                       symb = 3;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                       }
                   }
                   symb = 3;
@@ -480,16 +681,16 @@ public class ScientificCalulator {
               case "^.3":
                   if (chan == 0){
                       num1 = (int) cbrt(num1);
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       if(num2 == 0){
                           num1 = (int) cbrt(num1);
-                          Wspace.setText(Integer.toString(num1));
+                          Wspace.setText(Double.toString(num1));
                       }
                       else{
                       num2 = (int) cbrt(num2);
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                       if(symb == 1){
                           num1 = num1 / num2;
                       }
@@ -504,7 +705,7 @@ public class ScientificCalulator {
                       }
                       num2 = 0;
                       symb = 3;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                       }
                   }
                   symb = 3;
@@ -512,41 +713,41 @@ public class ScientificCalulator {
               case "-ve":
                   if (chan == 0){
                       num1 = num1 * (-1);
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       num2 = num2 * (-1);
-                      Wspace.setText(Integer.toString(num2));
+                      Wspace.setText(Double.toString(num2));
                   }
                   break;  
               case "x!":
                   if (chan == 0){
-                      int x=1;
+                      double x=1;
                       while(num1>0){
                           x = x * num1;
                           num1--;
                       }
                       num1 = x;
-                      Wspace.setText(Integer.toString(num1));
+                      Wspace.setText(Double.toString(num1));
                   }
                   else{
                       if (num2 == 0){
-                        int x=1;
+                        double x=1;
                         while(num1>0){
                             x = x * num1;
                             num1--;
                         }
                         num1 = x;
-                        Wspace.setText(Integer.toString(num1));
+                        Wspace.setText(Double.toString(num1));
                       }
                       else{
-                        int x = 1;
+                        double x = 1;
                         while(num2 > 0){
                             x = x* num2;
                             num2--;
                         }
                         num2 = x;
-                        Wspace.setText(Integer.toString(num2));
+                        Wspace.setText(Double.toString(num2));
                       }
                   }
                   break;
@@ -776,22 +977,31 @@ public class ScientificCalulator {
         b3.setForeground(Color.white);
         b3.setBackground(Color.GREEN.darker());
         
+        JButton b2;
+        b2 = new JButton("Log()");
+        b2.setForeground(Color.white);
+        b2.setBackground(Color.GREEN.darker());
+        
         JButton b1;
         b1 = new JButton("+/-");
         b1.setForeground(Color.white);
         b1.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
+        b2.setFont(f1);
         b3.setFont(f1);
         
         b1.setActionCommand("-ve");
+        b2.setActionCommand("log");
         b3.setActionCommand("x!");
         
         b1.addActionListener(new ButtonClickListener());
+        b2.addActionListener(new ButtonClickListener());
         b3.addActionListener(new ButtonClickListener());
         
-        r1.add(b1);
         r1.add(b3);
+        r1.add(b1);
+        r1.add(b2);
         mainFrame.add(r1);
     }
     private void Create_r7(){
@@ -888,8 +1098,57 @@ public class ScientificCalulator {
         r1.add(b4);
         mainFrame.add(r1);
     }
+    private void Create_r9(){
+        JPanel r1;
+        r1 = new JPanel();
+        r1.setLayout(new GridLayout());
+        r1.setBackground(Color.yellow);
+        
+        JButton b3;
+        b3 = new JButton("Tan()");
+        b3.setForeground(Color.white);
+        b3.setBackground(Color.GREEN.darker());
+        
+        JButton b1;
+        b1 = new JButton("Sin()");
+        b1.setForeground(Color.white);
+        b1.setBackground(Color.GREEN.darker());
+        
+        JButton b2;
+        b2 = new JButton("Cos()");
+        b2.setForeground(Color.white);
+        b2.setBackground(Color.GREEN.darker());
+        
+        JButton b4;
+        b4 = new JButton("Ln()");
+        b4.setForeground(Color.white);
+        b4.setBackground(Color.GREEN.darker());
+        
+        b1.setFont(f1);
+        b2.setFont(f1);
+        b3.setFont(f1);
+        b4.setFont(f1);
+        
+        b1.setActionCommand("sin");
+        b2.setActionCommand("cos");
+        b3.setActionCommand("tan");
+        b4.setActionCommand("ln");
+        
+        b1.addActionListener(new ButtonClickListener());
+        b2.addActionListener(new ButtonClickListener());
+        b3.addActionListener(new ButtonClickListener());
+        b4.addActionListener(new ButtonClickListener());
+        
+        r1.add(b1);
+        r1.add(b2);
+        r1.add(b3);
+        r1.add(b4);
+        mainFrame.add(r1);
+    }
+    
     void prepareGUI(){
         Create_Top();
+        Create_r8();
         Create_r1();
         Create_r2();
         Create_r3();
@@ -897,7 +1156,7 @@ public class ScientificCalulator {
         Create_r5();
         Create_r6();
         Create_r7();
-        Create_r8();
+        Create_r9();
         mainFrame.setVisible(true);
     }
     
