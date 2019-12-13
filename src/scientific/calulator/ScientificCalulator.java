@@ -978,7 +978,7 @@ public class ScientificCalulator {
         b3.setBackground(Color.GREEN.darker());
         
         JButton b2;
-        b2 = new JButton("Log()");
+        b2 = new JButton("log()");
         b2.setForeground(Color.white);
         b2.setBackground(Color.GREEN.darker());
         
@@ -1105,22 +1105,22 @@ public class ScientificCalulator {
         r1.setBackground(Color.yellow);
         
         JButton b3;
-        b3 = new JButton("Tan()");
+        b3 = new JButton("tan()");
         b3.setForeground(Color.white);
         b3.setBackground(Color.GREEN.darker());
         
         JButton b1;
-        b1 = new JButton("Sin()");
+        b1 = new JButton("sin()");
         b1.setForeground(Color.white);
         b1.setBackground(Color.GREEN.darker());
         
         JButton b2;
-        b2 = new JButton("Cos()");
+        b2 = new JButton("cos()");
         b2.setForeground(Color.white);
         b2.setBackground(Color.GREEN.darker());
         
         JButton b4;
-        b4 = new JButton("Ln()");
+        b4 = new JButton("ln()");
         b4.setForeground(Color.white);
         b4.setBackground(Color.GREEN.darker());
         
