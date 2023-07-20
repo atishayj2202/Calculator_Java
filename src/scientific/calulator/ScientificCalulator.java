@@ -1,9 +1,11 @@
 package scientific.calulator;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 import static java.lang.Math.cbrt;
 import static java.lang.Math.sqrt;
-import javax.swing.*;
 public class ScientificCalulator {
     static double num1 = 0;
     static double num2 = 0;
