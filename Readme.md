@@ -1,9 +1,6 @@
-Please open file from 
-	src>scientific>calulator
-The above is mentioned directory to open java file
-This is a project of Calculator made for competition (Code In by Google)
-	I have done changes as required.
-Thank You
+This is a project made for competition(Google Code-In 2019).
+It is a Scientific Calculator working properly on Windows.
+Error in Mac are resolved in 2023
 
 Regards
 ATISHAY JAIN

@@ -27,7 +27,7 @@ public class ScientificCalulator {
         Wspace = new JLabel("00",JLabel.CENTER);
         Wspace.setSize(300,100);
         Wspace.setFont(new Font(Font.SERIF,Font.BOLD, 55));
-        Wspace.setForeground(Color.WHITE);
+        Wspace.setForeground(Color.white);
         mainFrame.add(Wspace);
     }
     private class ButtonClickListener implements ActionListener{
@@ -771,22 +771,22 @@ public class ScientificCalulator {
         
         JButton b3;
         b3 = new JButton("X");
-        b3.setForeground(Color.white);
+        b3.setForeground(Color.black);
         b3.setBackground(Color.GREEN.darker());
         
         JButton b1;
         b1 = new JButton("AC");
-        b1.setForeground(Color.white);
+        b1.setForeground(Color.black);
         b1.setBackground(Color.GREEN.darker());
         
         JButton b2;
         b2 = new JButton("/");
-        b2.setForeground(Color.white);
+        b2.setForeground(Color.black);
         b2.setBackground(Color.GREEN.darker());
         
         JButton b4;
         b4 = new JButton("<=");
-        b4.setForeground(Color.white);
+        b4.setForeground(Color.black);
         b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
@@ -818,22 +818,22 @@ public class ScientificCalulator {
         
         JButton b3;
         b3 = new JButton("3");
-        b3.setForeground(Color.white);
+        b3.setForeground(Color.black);
         b3.setBackground(Color.BLUE.darker());
         
         JButton b1;
         b1 = new JButton("1");
-        b1.setForeground(Color.white);
+        b1.setForeground(Color.black);
         b1.setBackground(Color.BLUE.darker());
         
         JButton b2;
         b2 = new JButton("2");
-        b2.setForeground(Color.white);
+        b2.setForeground(Color.black);
         b2.setBackground(Color.BLUE.darker());
         
         JButton b4;
         b4 = new JButton("+");
-        b4.setForeground(Color.white);
+        b4.setForeground(Color.black);
         b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
@@ -865,22 +865,22 @@ public class ScientificCalulator {
         
         JButton b3;
         b3 = new JButton("6");
-        b3.setForeground(Color.white);
+        b3.setForeground(Color.black);
         b3.setBackground(Color.BLUE.darker());
         
         JButton b1;
         b1 = new JButton("4");
-        b1.setForeground(Color.white);
-        b1.setBackground(Color.BLUE.darker());
+        b1.setForeground(Color.black);
+        b1.setBackground(Color.blue.darker());
         
         JButton b2;
         b2 = new JButton("5");
-        b2.setForeground(Color.white);
+        b2.setForeground(Color.black);
         b2.setBackground(Color.BLUE.darker());
         
         JButton b4;
         b4 = new JButton("-");
-        b4.setForeground(Color.white);
+        b4.setForeground(Color.black);
         b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
@@ -912,22 +912,22 @@ public class ScientificCalulator {
         
         JButton b3;
         b3 = new JButton("9");
-        b3.setForeground(Color.white);
+        b3.setForeground(Color.black);
         b3.setBackground(Color.BLUE.darker());
         
         JButton b1;
         b1 = new JButton("7");
-        b1.setForeground(Color.white);
+        b1.setForeground(Color.black);
         b1.setBackground(Color.BLUE.darker());
         
         JButton b2;
         b2 = new JButton("8");
-        b2.setForeground(Color.white);
+        b2.setForeground(Color.black);
         b2.setBackground(Color.BLUE.darker());
         
         JButton b4;
         b4 = new JButton("=");
-        b4.setForeground(Color.white);
+        b4.setForeground(Color.black);
         b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
@@ -959,7 +959,7 @@ public class ScientificCalulator {
         
         JButton b3;
         b3 = new JButton("0");
-        b3.setForeground(Color.white);
+        b3.setForeground(Color.black);
         b3.setBackground(Color.BLUE.darker());
         b3.setFont(f1);
         b3.setActionCommand("0");
@@ -976,17 +976,17 @@ public class ScientificCalulator {
         
         JButton b3;
         b3 = new JButton("x!");
-        b3.setForeground(Color.white);
+        b3.setForeground(Color.black);
         b3.setBackground(Color.GREEN.darker());
         
         JButton b2;
         b2 = new JButton("log()");
-        b2.setForeground(Color.white);
+        b2.setForeground(Color.black);
         b2.setBackground(Color.GREEN.darker());
         
         JButton b1;
         b1 = new JButton("+/-");
-        b1.setForeground(Color.white);
+        b1.setForeground(Color.black);
         b1.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
@@ -1014,22 +1014,22 @@ public class ScientificCalulator {
         
         JButton b3;
         b3 = new JButton("x^3");
-        b3.setForeground(Color.white);
+        b3.setForeground(Color.black);
         b3.setBackground(Color.GREEN.darker());
         
         JButton b1;
         b1 = new JButton("x^2");
-        b1.setForeground(Color.white);
+        b1.setForeground(Color.black);
         b1.setBackground(Color.GREEN.darker());
         
         JButton b2;
         b2 = new JButton("x^1/2");
-        b2.setForeground(Color.white);
+        b2.setForeground(Color.black);
         b2.setBackground(Color.GREEN.darker());
         
         JButton b4;
         b4 = new JButton("x^1/3");
-        b4.setForeground(Color.white);
+        b4.setForeground(Color.black);
         b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
@@ -1061,22 +1061,22 @@ public class ScientificCalulator {
         
         JButton b3;
         b3 = new JButton("MC");
-        b3.setForeground(Color.white);
+        b3.setForeground(Color.black);
         b3.setBackground(Color.RED.darker());
         
         JButton b1;
         b1 = new JButton("MR");
-        b1.setForeground(Color.white);
+        b1.setForeground(Color.black);
         b1.setBackground(Color.RED.darker());
         
         JButton b2;
         b2 = new JButton("MS");
-        b2.setForeground(Color.white);
+        b2.setForeground(Color.black);
         b2.setBackground(Color.RED.darker());
         
         JButton b4;
         b4 = new JButton("M+");
-        b4.setForeground(Color.white);
+        b4.setForeground(Color.black);
         b4.setBackground(Color.RED.darker());
         
         b1.setFont(f1);
@@ -1108,22 +1108,22 @@ public class ScientificCalulator {
         
         JButton b3;
         b3 = new JButton("tan()");
-        b3.setForeground(Color.white);
+        b3.setForeground(Color.black);
         b3.setBackground(Color.GREEN.darker());
         
         JButton b1;
         b1 = new JButton("sin()");
-        b1.setForeground(Color.white);
+        b1.setForeground(Color.black);
         b1.setBackground(Color.GREEN.darker());
         
         JButton b2;
         b2 = new JButton("cos()");
-        b2.setForeground(Color.white);
+        b2.setForeground(Color.black);
         b2.setBackground(Color.GREEN.darker());
         
         JButton b4;
         b4 = new JButton("ln()");
-        b4.setForeground(Color.white);
+        b4.setForeground(Color.black);
         b4.setBackground(Color.GREEN.darker());
         
         b1.setFont(f1);
